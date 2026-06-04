@@ -1,64 +1,40 @@
 <?php
 
-if (!defined('ABSPATH')) {
-    exit;
-}
-
-$departments = require __DIR__ . '/departments.php';
-
 return [
 
-    'primary' => [
+    [
+        'label' => 'Home',
+        'path'  => '/',
+    ],
 
-        [
-            'label' => 'Home',
-            'path'  => '/',
-            'icon'  => 'home',
-        ],
+    [
+        'label' => 'Projects',
+        'path'  => '/projects',
+    ],
 
-        [
-            'label' => 'Departments',
-            'type'  => 'dropdown',
-            'icon'  => 'building-office',
-            'items' => $departments,
-        ],
+    [
+        'label' => 'Resources',
+        'path'  => '/resources',
+    ],
 
-        [
-            'label' => 'News',
-            'path'  => '/news',
-            'icon'  => 'newspaper',
-        ],
+    [
+        'label' => 'News',
+        'path'  => '/news',
+    ],
 
-        [
-            'label' => 'Projects',
-            'path'  => '/projects',
-            'icon'  => 'folder',
-        ],
+    [
+        'label' => 'Staff Directory',
+        'path'  => '/staff-directory',
+    ],
 
-        [
-            'label' => 'Resources',
-            'path'  => '/resources',
-            'icon'  => 'document-text',
-        ],
+    [
+        'label' => 'Media',
+        'path'  => '/media',
+    ],
 
-        [
-            'label' => 'Staff Directory',
-            'path'  => '/staff-directory',
-            'icon'  => 'users',
-        ],
-
-        [
-            'label' => 'Media',
-            'path'  => '/media',
-            'icon'  => 'photo',
-        ],
-
-        [
-            'label' => 'Contact',
-            'path'  => '/contact-us',
-            'icon'  => 'envelope',
-        ],
-
+    [
+        'label' => 'Contact',
+        'path'  => '/contact',
     ],
 
 ];
