@@ -58,6 +58,7 @@ $gap_class =
 <div
     class="
         grid
+        min-w-0
 
         <?php echo esc_attr(
             $variant_class
