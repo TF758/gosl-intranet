@@ -8,7 +8,7 @@ $files = [
 
     'setup/theme.php',
 
-    'helpers/config.php',
+    // 'helpers/config.php',
 
     'post-types/department.php',
 
@@ -23,7 +23,12 @@ $files = [
 
 foreach ($files as $file) {
 
-    require_once get_template_directory()
+    $path =
+        get_template_directory()
         . '/inc/'
         . $file;
+
+    if (file_exists($path)) {
+        require_once $path;
+    }
 }
