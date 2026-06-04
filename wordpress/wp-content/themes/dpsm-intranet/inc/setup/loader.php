@@ -14,6 +14,10 @@ $files = [
 
     'acf/register.php',
 
+    'post-types/staff.php',
+
+    'setup/acf.php',
+
 
 ];
 
