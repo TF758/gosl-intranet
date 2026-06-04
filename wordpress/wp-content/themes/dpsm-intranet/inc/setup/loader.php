@@ -10,6 +10,9 @@ $files = [
 
     'helpers/config.php',
 
+    'post-types/department.php',
+
+
 ];
 
 foreach ($files as $file) {
