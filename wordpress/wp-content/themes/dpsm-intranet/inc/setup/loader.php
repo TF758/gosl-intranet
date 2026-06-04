@@ -22,6 +22,10 @@ $files = [
     'post-types/resource.php',
     'post-types/news.php',
 
+    'taxonomies/project-tag.php',
+
+    'taxonomies/resource-tag.php',
+
 
 ];
 
