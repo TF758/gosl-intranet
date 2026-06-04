@@ -7,7 +7,17 @@ $slides = [
         'badge' => 'Campaign',
         'button_label' => 'Learn More',
         'button_url' => '#',
-        'image' => '...',
+        // 'image' => '...',
+        'image' => 'https://picsum.photos/1200/800'
+    ],
+    [
+        'title' => 'Test Slide 2',
+        'description' => 'Test slide description.',
+        'badge' => 'F0ckery',
+        'button_label' => 'Learn More',
+        'button_url' => '#',
+        // 'image' => '...',
+        'image' => 'https://picsum.photos/1200/800'
     ],
 ];
 
