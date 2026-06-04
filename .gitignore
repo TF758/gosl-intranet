@@ -1,0 +1,115 @@
+﻿# =========================================
+# Dependencies
+# =========================================
+
+node_modules/
+vendor/
+
+# =========================================
+# Environment / Secrets
+# =========================================
+
+.env
+.env.*
+credentials.txt
+
+# =========================================
+# Logs / Temp
+# =========================================
+
+*.log
+debug.log
+*.tmp
+*.swp
+
+# =========================================
+# OS / Editor
+# =========================================
+
+.vscode/
+.DS_Store
+Thumbs.db
+
+# =========================================
+# WordPress
+# =========================================
+
+wordpress/*
+!wordpress/.gitkeep
+!wordpress/wp-content/
+
+wordpress/wp-content/*
+!wordpress/wp-content/themes/
+!wordpress/wp-content/uploads/
+!wordpress/wp-content/mu-plugins/
+!wordpress/wp-content/exports/
+
+# =========================================
+# DPSM Theme (TRACKED)
+# =========================================
+
+wordpress/wp-content/themes/*
+!wordpress/wp-content/themes/dpsm-intranet/
+!wordpress/wp-content/themes/dpsm-intranet/**
+
+# =========================================
+# Theme Dependencies
+# =========================================
+
+wordpress/wp-content/themes/dpsm-intranet/node_modules/
+
+# =========================================
+# Tailwind Build Output
+# =========================================
+
+wordpress/wp-content/themes/dpsm-intranet/assets/css/output.css
+
+# =========================================
+# ACF JSON (TRACKED)
+# =========================================
+
+!wordpress/wp-content/themes/dpsm-intranet/acf-json/
+!wordpress/wp-content/themes/dpsm-intranet/acf-json/**
+
+# =========================================
+# MU Plugins (TRACKED)
+# =========================================
+
+!wordpress/wp-content/mu-plugins/
+!wordpress/wp-content/mu-plugins/**
+
+# =========================================
+# Content Exports (TRACKED)
+# =========================================
+
+!wordpress/wp-content/exports/
+!wordpress/wp-content/exports/**
+
+# =========================================
+# Plugins (Ignored)
+# =========================================
+
+wordpress/wp-content/plugins/
+
+# =========================================
+# Uploads
+# =========================================
+
+wordpress/wp-content/uploads/*
+!wordpress/wp-content/uploads/.gitkeep
+
+# =========================================
+# Cache / Upgrade
+# =========================================
+
+wordpress/wp-content/cache/
+wordpress/wp-content/upgrade/
+
+# =========================================
+# Backups
+# =========================================
+
+backups/
+*.sql
+*.zip
+*.tar.gz
