@@ -12,6 +12,8 @@ $files = [
 
     'post-types/department.php',
 
+    'acf/register.php',
+
 
 ];
 
