@@ -21,10 +21,13 @@ $files = [
     'post-types/project.php',
     'post-types/resource.php',
     'post-types/news.php',
+    'post-types/hero-slide.php',
 
     'taxonomies/project-tag.php',
 
     'taxonomies/resource-tag.php',
+
+    'mappers/hero-slides.php',
 
 
 ];
