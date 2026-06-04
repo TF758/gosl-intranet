@@ -18,6 +18,10 @@ $files = [
 
     'setup/acf.php',
 
+    'post-types/project.php',
+    'post-types/resource.php',
+    'post-types/news.php',
+
 
 ];
 
