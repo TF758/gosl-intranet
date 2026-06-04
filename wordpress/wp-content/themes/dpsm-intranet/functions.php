@@ -5,4 +5,4 @@ if (!defined('ABSPATH')) {
 }
 
 require_once get_template_directory()
-    . '/inc/setup/theme.php';
+    . '/inc/setup/loader.php';
