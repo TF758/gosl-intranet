@@ -119,6 +119,15 @@ $departments =
                             as $item
                         ) : ?>
 
+                            <?php
+
+                            $is_active =
+                                dpsm_is_active_path(
+                                    $item['path']
+                                );
+
+                            ?>
+
                             <a
                                 href="<?php echo esc_url(
                                             home_url(
@@ -126,14 +135,18 @@ $departments =
                                             )
                                         ); ?>"
                                 class="
-                                    rounded-box
-                                    px-4
-                                    py-2
-                                    text-sm
-                                    font-medium
-                                    transition-colors
-                                    hover:bg-base-200
-                                ">
+            rounded-box
+            px-4
+            py-2
+            text-sm
+            font-medium
+            transition-colors
+
+            <?php echo $is_active
+                                ? 'bg-primary text-primary-content'
+                                : 'hover:bg-base-200';
+            ?>
+        ">
 
                                 <?php echo esc_html(
                                     $item['label']

@@ -194,16 +194,30 @@ $departments =
 
                     <li>
 
+                        <?php
+
+                        $is_active =
+                            dpsm_is_current_url(
+                                $department['url']
+                            );
+
+                        ?>
+
                         <a
                             href="<?php echo esc_url(
                                         $department['url']
                                     ); ?>"
                             class="
-                                rounded-box
-                                flex
-                                items-center
-                                justify-between
-                            ">
+        rounded-box
+        flex
+        items-center
+        justify-between
+
+        <?php echo $is_active
+                        ? 'active'
+                        : '';
+        ?>
+    ">
 
                             <span>
 
@@ -221,10 +235,14 @@ $departments =
 
                                 <span
                                     class="
-                                        badge
-                                        badge-primary
-                                        badge-sm
-                                    ">
+                                badge
+                                badge-sm
+
+                        <?php echo $is_active
+                                    ? 'badge-primary'
+                                    : 'badge-outline';
+                        ?>
+                                ">
 
                                     <?php echo esc_html(
                                         $department['code']

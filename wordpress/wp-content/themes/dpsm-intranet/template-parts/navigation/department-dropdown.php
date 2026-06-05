@@ -73,15 +73,30 @@ if (empty($departments)) {
 
             <li>
 
+                <?php
+
+                $is_active =
+                    dpsm_is_current_url(
+                        $department['url']
+                    );
+
+                ?>
+
+
                 <a
                     href="<?php echo esc_url(
                                 $department['url']
                             ); ?>"
                     class="
-                        flex
-                        items-center
-                        justify-between
-                    ">
+        flex
+        items-center
+        justify-between
+
+      <?php echo $is_active
+                ? 'bg-primary text-primary-content'
+                : 'hover:bg-base-200';
+        ?>
+    ">
 
                     <span>
 
@@ -97,10 +112,10 @@ if (empty($departments)) {
 
                         <span
                             class="
-                                badge
-                                badge-outline
-                                badge-sm
-                            ">
+                badge
+                badge-outline
+                badge-sm
+            ">
 
                             <?php echo esc_html(
                                 $department['code']
