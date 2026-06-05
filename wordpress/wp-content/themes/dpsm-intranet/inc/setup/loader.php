@@ -8,7 +8,9 @@ $files = [
 
     'setup/theme.php',
 
-    // 'helpers/config.php',
+
+    'helpers/navigation.php',
+    'helpers/department.php',
 
     'post-types/department.php',
 
