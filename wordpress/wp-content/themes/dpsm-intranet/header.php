@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <!doctype html>
-<html <?php language_attributes(); ?> data-theme="light">
+<html <?php language_attributes(); ?>>
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">

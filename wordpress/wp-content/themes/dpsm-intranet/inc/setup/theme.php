@@ -36,6 +36,16 @@ function dpsm_enqueue_assets(): void
         )
     );
 
+    wp_enqueue_script(
+        'dpsm-theme',
+        get_template_directory_uri() . '/assets/js/theme.js',
+        [],
+        filemtime(
+            get_template_directory() . '/assets/js/theme.js'
+        ),
+        false
+    );
+
     wp_enqueue_style(
         'swiper',
         'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css',

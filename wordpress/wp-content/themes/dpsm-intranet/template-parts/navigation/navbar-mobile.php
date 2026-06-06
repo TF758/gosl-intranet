@@ -77,34 +77,49 @@ $departments =
 
                         <!-- Mobile Toggle -->
 
-                        <label
-                            for="mobile-nav"
+                        <div
                             class="
-                                 btn
-                                 btn-ghost
-                                 btn-sm
-                             "
-                            aria-label="Open Navigation">
+                            flex
+                            items-center
+                            gap-1
+                        ">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
+                            <?php
+                            get_template_part(
+                                'template-parts/navigation/theme-toggle'
+                            );
+                            ?>
+
+                            <label
+                                for="mobile-nav"
                                 class="
-                                     h-5
-                                     w-5
-                                 ">
+            btn
+            btn-ghost
+            btn-sm
+        "
+                                aria-label="Open Navigation">
 
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="
+                                        h-5
+                                        w-5
+                                    ">
 
-                            </svg>
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
 
-                        </label>
+                                </svg>
+
+                            </label>
+
+                        </div>
 
                     </div>
 

@@ -182,33 +182,11 @@ $departments =
 
                 <!-- Future Theme Toggle -->
 
-                <button
-                    class="
-                                btn
-                                btn-ghost
-                                btn-sm
-                            "
-                    aria-label="Theme Toggle">
-
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                        stroke="currentColor"
-                        class="
-                                    h-4
-                                    w-4
-                                ">
-
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M21.752 15.002A9.718 9.718 0 0112 21c-5.385 0-9.75-4.365-9.75-9.75 0-4.033 2.448-7.494 5.94-8.962a.75.75 0 01.98.98A7.5 7.5 0 0018.75 14.83a.75.75 0 01.98.98z" />
-
-                    </svg>
-
-                </button>
+                <?php
+                get_template_part(
+                    'template-parts/navigation/theme-toggle'
+                );
+                ?>
 
                 <?php
                 get_template_part(
