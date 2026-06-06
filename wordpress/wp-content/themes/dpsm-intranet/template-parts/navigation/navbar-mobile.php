@@ -1,302 +1,274 @@
 <?php
 
+/** @var array $args */
+
 $navigation =
-    $args['navigation'] ?? [];
+    $args['navigation'];
 
 $departments =
-    $args['departments'] ?? [];
+    $args['departments'];
 
 ?>
 
-<div
-    class="
-        drawer-side
-        z-50
-    ">
+<div class="lg:hidden w-full">
 
-    <label
-        for="mobile-nav"
-        aria-label="Close Navigation"
-        class="
-            drawer-overlay
-        ">
-    </label>
+    <div class="drawer w-full">
 
-    <aside
-        class="
-            min-h-full
-            w-96
-            overflow-y-auto
-            bg-base-100
-            border-r
-            border-base-300
-            flex
-            flex-col
-        ">
+        <input
+            id="mobile-nav"
+            type="checkbox"
+            class="drawer-toggle" />
 
-        <!-- Branding -->
+        <!-- Mobile Header -->
 
-        <div
-            class="
-                bg-primary
-                text-primary-content
-                p-6
-            ">
+        <div class="drawer-content">
 
-            <div
+            <header
                 class="
-                    flex
-                    items-center
-                    gap-4
-                ">
+                     sticky
+                     top-0
+                     z-50
+                     w-full
+                     border-b
+                     border-base-300
+                     bg-base-100/90
+                     backdrop-blur
+                     shadow-sm
+                 ">
 
-                <img
-                    src="<?php echo esc_url(
-                                get_template_directory_uri()
-                                    . '/assets/images/logo.png'
-                            ); ?>"
-                    alt="DPSM Logo"
+                <div
                     class="
-                        h-12
-                        w-auto
-                    ">
+                         px-6
+                     ">
 
-                <div>
-
-                    <h2
+                    <div
                         class="
-                            font-bold
-                            text-lg
-                        ">
+                             flex
+                             h-16
+                             items-center
+                             justify-between
+                         ">
 
-                        DPSM Intranet
+                        <!-- Logo -->
 
-                    </h2>
+                        <a
+                            href="<?php echo esc_url(
+                                        home_url('/')
+                                    ); ?>"
+                            class="
+                                 flex
+                                 items-center
+                                 gap-3
+                                 shrink-0
+                             ">
 
-                    <p
-                        class="
-                            text-sm
-                            opacity-80
-                        ">
+                            <img
+                                src="<?php echo esc_url(
+                                            get_template_directory_uri()
+                                                . '/assets/images/logo.png'
+                                        ); ?>"
+                                alt="DPSM Logo"
+                                class="
+                                     h-10
+                                     w-auto
+                                 ">
 
-                        Ministry of Public Service
+                        </a>
 
-                    </p>
+                        <!-- Mobile Toggle -->
+
+                        <label
+                            for="mobile-nav"
+                            class="
+                                 btn
+                                 btn-ghost
+                                 btn-sm
+                             "
+                            aria-label="Open Navigation">
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                class="
+                                     h-5
+                                     w-5
+                                 ">
+
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+
+                            </svg>
+
+                        </label>
+
+                    </div>
 
                 </div>
 
-            </div>
+            </header>
 
         </div>
 
-        <!-- Navigation -->
 
-        <div
-            class="
-                p-4
-            ">
+        <!-- Drawer -->
 
-            <h3
+        <div class="drawer-side z-[60]">
+
+            <label
+                for="mobile-nav"
+                aria-label="Close Navigation"
+                class="drawer-overlay">
+            </label>
+
+            <aside
                 class="
-                    mb-3
-                    text-xs
-                    font-semibold
-                    uppercase
-                    tracking-wider
-                    text-base-content/60
+                    min-h-full
+                    w-80
+                    bg-base-100
+                    border-r
+                    border-base-300
                 ">
 
-                Navigation
+                <div class="p-4">
 
-            </h3>
+                    <!-- Navigation -->
 
-            <ul
-                class="
-                    menu
-                    w-full
-                    gap-1
-                ">
+                    <ul class="menu w-full">
 
-                <?php foreach (
-                    $navigation
-                    as $item
-                ) : ?>
+                        <?php foreach (
+                            $navigation
+                            as $item
+                        ) : ?>
 
-                    <li>
+                            <?php
 
-                        <a
-                            href="<?php echo esc_url(
-                                        home_url(
-                                            $item['path']
-                                        )
-                                    ); ?>"
-                            class="
-                                rounded-box
-                                font-medium
-                            ">
+                            $is_active =
+                                dpsm_is_active_path(
+                                    $item['path']
+                                );
 
-                            <?php echo esc_html(
-                                $item['label']
-                            ); ?>
+                            ?>
 
-                        </a>
+                            <li>
 
-                    </li>
-
-                <?php endforeach; ?>
-
-            </ul>
-
-        </div>
-
-        <!-- Divider -->
-
-        <div
-            class="
-                mx-4
-                border-t
-                border-base-300
-            ">
-        </div>
-
-        <!-- Departments -->
-
-        <div
-            class="
-                p-4
-            ">
-
-            <h3
-                class="
-                    mb-3
-                    text-xs
-                    font-semibold
-                    uppercase
-                    tracking-wider
-                    text-base-content/60
-                ">
-
-                Departments
-
-            </h3>
-
-            <ul
-                class="
-                    menu
-                    w-full
-                    gap-1
-                ">
-
-                <?php foreach (
-                    $departments
-                    as $department
-                ) : ?>
-
-                    <li>
-
-                        <?php
-
-                        $is_active =
-                            dpsm_is_current_url(
-                                $department['url']
-                            );
-
-                        ?>
-
-                        <a
-                            href="<?php echo esc_url(
-                                        $department['url']
-                                    ); ?>"
-                            class="
-        rounded-box
-        flex
-        items-center
-        justify-between
-
-        <?php echo $is_active
-                        ? 'active'
-                        : '';
-        ?>
-    ">
-
-                            <span>
-
-                                <?php echo esc_html(
-                                    strtoupper(
-                                        $department['name']
-                                    )
-                                ); ?>
-
-                            </span>
-
-                            <?php if (
-                                !empty($department['code'])
-                            ) : ?>
-
-                                <span
+                                <a
+                                    href="<?php echo esc_url(
+                                                home_url(
+                                                    $item['path']
+                                                )
+                                            ); ?>"
                                     class="
-                                badge
-                                badge-sm
-
-                        <?php echo $is_active
-                                    ? 'badge-primary'
-                                    : 'badge-outline';
-                        ?>
-                                ">
+                                            <?php echo $is_active
+                                                ? 'bg-primary text-primary-content'
+                                                : 'hover:bg-base-200';
+                                            ?>
+                                        ">
 
                                     <?php echo esc_html(
-                                        $department['code']
+                                        $item['label']
                                     ); ?>
 
-                                </span>
+                                </a>
 
-                            <?php endif; ?>
+                            </li>
 
-                        </a>
+                        <?php endforeach; ?>
 
-                    </li>
+                    </ul>
 
-                <?php endforeach; ?>
+                    <!-- Departments -->
 
-            </ul>
+                    <?php if (
+                        !empty($departments)
+                    ) : ?>
+
+                        <div class="divider">
+
+                            Departments
+
+                        </div>
+
+                        <ul class="menu w-full">
+
+                            <?php foreach (
+                                $departments
+                                as $department
+                            ) : ?>
+
+                                <?php
+
+                                $is_active =
+                                    dpsm_is_current_url(
+                                        $department['url']
+                                    );
+
+                                ?>
+
+                                <li>
+
+                                    <a
+                                        href="<?php echo esc_url(
+                                                    $department['url']
+                                                ); ?>"
+                                        class="
+                                            flex
+                                            items-center
+                                            justify-between
+
+                                            <?php echo $is_active
+                                                ? 'bg-primary text-primary-content'
+                                                : 'hover:bg-base-200';
+                                            ?>
+                                        ">
+
+                                        <span>
+
+                                            <?php echo esc_html(
+                                                $department['name']
+                                            ); ?>
+
+                                        </span>
+
+                                        <?php if (
+                                            !empty($department['code'])
+                                        ) : ?>
+
+                                            <span
+                                                class="
+                                                    badge
+                                                    badge-outline
+                                                    badge-sm
+                                                ">
+
+                                                <?php echo esc_html(
+                                                    $department['code']
+                                                ); ?>
+
+                                            </span>
+
+                                        <?php endif; ?>
+
+                                    </a>
+
+                                </li>
+
+                            <?php endforeach; ?>
+
+                        </ul>
+
+                    <?php endif; ?>
+
+                </div>
+
+            </aside>
 
         </div>
 
-        <!-- Footer -->
-
-        <div
-            class="
-                mt-auto
-                border-t
-                border-base-300
-                p-6
-            ">
-
-            <p
-                class="
-                    mb-2
-                    text-xs
-                    font-semibold
-                    uppercase
-                    text-base-content/50
-                ">
-
-                Powered By
-
-            </p>
-
-            <p
-                class="
-                    text-sm
-                    text-base-content/80
-                ">
-
-                Department of Public Service Modernisation
-
-            </p>
-
-        </div>
-
-    </aside>
+    </div>
 
 </div>
