@@ -13,6 +13,7 @@ $files = [
     'helpers/department.php',
     'helpers/quick-links.php',
     'helpers/news.php',
+    'helpers/resource.php',
 
     'post-types/department.php',
 
@@ -33,7 +34,7 @@ $files = [
 
     'mappers/hero-slides.php',
     'mappers/news.php',
-
+    'mappers/resource.php',
 
 ];
 
