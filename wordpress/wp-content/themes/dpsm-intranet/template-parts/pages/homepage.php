@@ -7,8 +7,7 @@ $slides = [
         'badge' => 'Campaign',
         'button_label' => 'Learn More',
         'button_url' => '#',
-        // 'image' => '...',
-        'image' => 'https://picsum.photos/1200/800'
+        'image' => 'https://picsum.photos/1200/800',
     ],
     [
         'title' => 'Test Slide 2',
@@ -16,26 +15,13 @@ $slides = [
         'badge' => 'F0ckery',
         'button_label' => 'Learn More',
         'button_url' => '#',
-        // 'image' => '...',
-        'image' => 'https://picsum.photos/1200/800'
+        'image' => 'https://picsum.photos/1200/800',
     ],
 ];
 
 ?>
 
 <?php
-
-get_template_part(
-    'template-parts/components/layout/section',
-    null,
-    [
-        'spacing' => 'none',
-    ]
-);
-
-get_template_part(
-    'template-parts/components/layout/container'
-);
 
 get_template_part(
     'template-parts/components/features/hero-carousel',
@@ -47,5 +33,38 @@ get_template_part(
 
 ?>
 
-</div>
+<section class="py-12">
+
+    <div
+        class="
+            mx-auto
+            max-w-7xl
+            px-4
+            sm:px-6
+            lg:px-8
+        ">
+
+        <?php
+
+        get_template_part(
+            'template-parts/components/navigation/quick-links',
+            null,
+            [
+                'heading' =>
+                'Quick Access',
+
+                'description' =>
+                'Frequently used areas of the DPSM intranet.',
+
+                'links' =>
+                dpsm_get_quick_links(
+                    'homepage'
+                ),
+            ]
+        );
+
+        ?>
+
+    </div>
+
 </section>

@@ -5,12 +5,13 @@ if (!defined('ABSPATH')) {
 }
 
 $files = [
-
+    'setup/constants.php',
     'setup/theme.php',
 
 
     'helpers/navigation.php',
     'helpers/department.php',
+    'helpers/quick-links.php',
 
     'post-types/department.php',
 
