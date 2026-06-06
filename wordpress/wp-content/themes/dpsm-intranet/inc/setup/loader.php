@@ -12,6 +12,7 @@ $files = [
     'helpers/navigation.php',
     'helpers/department.php',
     'helpers/quick-links.php',
+    'helpers/news.php',
 
     'post-types/department.php',
 
@@ -31,6 +32,7 @@ $files = [
     'taxonomies/resource-tag.php',
 
     'mappers/hero-slides.php',
+    'mappers/news.php',
 
 
 ];

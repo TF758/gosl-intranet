@@ -1,5 +1,7 @@
 <?php
 
+
+
 $slides = [
     [
         'title' => 'Public Service Modernisation',
@@ -60,6 +62,37 @@ get_template_part(
                 dpsm_get_quick_links(
                     'homepage'
                 ),
+            ]
+        );
+
+        ?>
+
+    </div>
+
+</section>
+
+<section class="py-12">
+
+    <div
+        class="
+            mx-auto
+            max-w-7xl
+            px-4
+            sm:px-6
+            lg:px-8
+        ">
+
+        <?php
+
+        get_template_part(
+            'template-parts/components/news/homepage-news',
+            null,
+            [
+                'featured' =>
+                dpsm_get_homepage_featured_news(),
+
+                'latest' =>
+                dpsm_get_homepage_news(4),
             ]
         );
 
