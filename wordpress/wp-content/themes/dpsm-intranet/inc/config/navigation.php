@@ -34,7 +34,7 @@ return [
 
     [
         'label' => 'Contact',
-        'path'  => '/contact',
+        'path'  => '/contact-us',
     ],
 
 ];

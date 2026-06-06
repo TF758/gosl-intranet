@@ -50,3 +50,38 @@ function dpsm_get_department(
 
     ];
 }
+
+function dpsm_map_department(
+    WP_Post $department
+): array {
+
+    return [
+
+        'id' =>
+        $department->ID,
+
+        'name' =>
+        get_the_title(
+            $department
+        ),
+
+        'email' =>
+        get_field(
+            'department_email',
+            $department->ID
+        ),
+
+        'phone' =>
+        get_field(
+            'contact_phone',
+            $department->ID
+        ),
+
+        'location' =>
+        get_field(
+            'office_location',
+            $department->ID
+        ),
+
+    ];
+}
