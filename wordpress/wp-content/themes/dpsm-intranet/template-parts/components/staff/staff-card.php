@@ -36,9 +36,19 @@ $show_department =
         h-full
     ">
 
-    <div class="card-body">
+    <div
+        class="
+            card-body
+            flex
+            flex-col
+        ">
 
-        <div class="flex items-center gap-4">
+        <div
+            class="
+                flex
+                items-start
+                gap-4
+            ">
 
             <?php if ($photo) : ?>
 
@@ -46,50 +56,64 @@ $show_department =
                     src="<?php echo esc_url($photo); ?>"
                     alt="<?php echo esc_attr($name); ?>"
                     class="
-                        w-16
-                        h-16
+                        w-20
+                        h-20
                         rounded-full
                         object-cover
+                        shrink-0
                     ">
 
             <?php else : ?>
 
                 <div
                     class="
-                        avatar
-                        placeholder
-                    ">
+            w-20
+            h-20
+            rounded-full
+            bg-primary
+            text-primary-content
+            flex
+            items-center
+            justify-center
+            shrink-0
+        ">
 
-                    <div
+                    <span
                         class="
-                            bg-primary
-                            text-primary-content
-                            rounded-full
-                            w-16
-                        ">
+                text-2xl
+                font-semibold
+            ">
 
-                        <span>
-                            <?php
-                            echo strtoupper(
-                                substr($name, 0, 1)
-                            );
-                            ?>
-                        </span>
+                        <?php
+                        echo strtoupper(
+                            substr(
+                                trim($name),
+                                0,
+                                1
+                            )
+                        );
+                        ?>
 
-                    </div>
+                    </span>
 
                 </div>
 
             <?php endif; ?>
 
-            <div>
+            <div
+                class="
+                    min-w-0
+                ">
 
                 <h3
                     class="
-                        font-semibold
                         text-lg
+                        font-semibold
+                        leading-tight
                     ">
+
                     <?php echo esc_html($name); ?>
+
                 </h3>
 
                 <?php if ($job_title) : ?>
@@ -99,7 +123,9 @@ $show_department =
                             text-sm
                             text-base-content/70
                         ">
+
                         <?php echo esc_html($job_title); ?>
+
                     </p>
 
                 <?php endif; ?>
@@ -111,10 +137,14 @@ $show_department =
 
                     <p
                         class="
+                            mt-1
                             text-sm
+                            font-medium
                             text-primary
                         ">
+
                         <?php echo esc_html($department); ?>
+
                     </p>
 
                 <?php endif; ?>
@@ -123,10 +153,12 @@ $show_department =
 
                     <p
                         class="
-                            text-xs
+                            text-sm
                             text-base-content/60
                         ">
+
                         <?php echo esc_html($unit); ?>
+
                     </p>
 
                 <?php endif; ?>
@@ -151,8 +183,11 @@ $show_department =
                         class="
                             badge
                             badge-outline
+                            badge-sm
                         ">
+
                         <?php echo esc_html($tag); ?>
+
                     </div>
 
                 <?php endforeach; ?>
@@ -163,24 +198,50 @@ $show_department =
 
         <div
             class="
-                mt-4
+                mt-auto
                 pt-4
                 border-t
                 border-base-300
-                text-sm
                 space-y-2
+                text-sm
             ">
 
             <?php if ($phone) : ?>
 
-                <div>
-                    📞
-                    <?php echo esc_html($phone); ?>
+                <div
+                    class="
+                        flex
+                        items-center
+                        gap-2
+                    ">
+
+                    <span>📞</span>
+
+                    <span>
+
+                        <?php
+                        echo esc_html(
+                            $phone
+                        );
+                        ?>
+
+                    </span>
 
                     <?php if ($extension) : ?>
 
-                        (Ext.
-                        <?php echo esc_html($extension); ?>)
+                        <span
+                            class="
+                                text-base-content/60
+                            ">
+
+                            Ext.
+                            <?php
+                            echo esc_html(
+                                $extension
+                            );
+                            ?>
+
+                        </span>
 
                     <?php endif; ?>
 
@@ -190,15 +251,28 @@ $show_department =
 
             <?php if ($email) : ?>
 
-                <div>
+                <div
+                    class="
+                        flex
+                        items-center
+                        gap-2
+                    ">
 
-                    ✉
+                    <span>✉</span>
 
                     <a
                         href="mailto:<?php echo esc_attr($email); ?>"
-                        class="link link-hover">
+                        class="
+                            link
+                            link-hover
+                            truncate
+                        ">
 
-                        <?php echo esc_html($email); ?>
+                        <?php
+                        echo esc_html(
+                            $email
+                        );
+                        ?>
 
                     </a>
 

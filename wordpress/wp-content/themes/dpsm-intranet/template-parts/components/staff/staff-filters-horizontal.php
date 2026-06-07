@@ -5,36 +5,27 @@
         border
         border-base-300
         shadow-sm
-        sticky
-        top-24
     ">
 
     <div
         class="
             card-body
             p-6
-            lg:p-8
-            space-y-4
+            flex
+            flex-col
+            lg:flex-row
+            gap-4
+            items-stretch
+            lg:items-end
         ">
-
-        <h3
-            class="
-                font-semibold
-                text-lg
-            ">
-            Filters
-        </h3>
-
-        <div
-            class="
-                divider
-                my-0
-            ">
-        </div>
 
         <!-- SEARCH -->
 
-        <div>
+        <div
+            class="
+                w-full
+                lg:max-w-xl
+            ">
 
             <label
                 class="
@@ -110,47 +101,11 @@
                     select
                     select-bordered
                     w-full
+                    lg:w-48
                 ">
 
                 <option>
                     All Titles
-                </option>
-
-            </select>
-
-        </div>
-
-        <!-- DEPARTMENT -->
-
-        <div>
-
-            <label
-                class="
-                    label
-                    pb-1
-                ">
-
-                <span
-                    class="
-                        label-text
-                        font-medium
-                    ">
-
-                    Department
-
-                </span>
-
-            </label>
-
-            <select
-                class="
-                    select
-                    select-bordered
-                    w-full
-                ">
-
-                <option>
-                    All Departments
                 </option>
 
             </select>
@@ -184,6 +139,7 @@
                     select
                     select-bordered
                     w-full
+                    lg:w-48
                 ">
 
                 <option>
@@ -221,6 +177,7 @@
                     select
                     select-bordered
                     w-full
+                    lg:w-48
                 ">
 
                 <option>
@@ -233,17 +190,33 @@
 
         <!-- CLEAR -->
 
-        <button
-            class="
-                btn
-                btn-outline
-                w-full
-                mt-2
-            ">
+        <div>
 
-            Clear Filters
+            <label
+                class="
+                    label
+                    pb-1
+                    opacity-0
+                ">
 
-        </button>
+                <span>
+                    Clear
+                </span>
+
+            </label>
+
+            <button
+                class="
+                    btn
+                    btn-outline
+                    w-full
+                ">
+
+                Clear
+
+            </button>
+
+        </div>
 
     </div>
 
