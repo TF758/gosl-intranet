@@ -11,6 +11,7 @@ $files = [
 
     'helpers/navigation.php',
     'helpers/department.php',
+    'helpers/department-nav.php',
     'helpers/quick-links.php',
     'helpers/news.php',
     'helpers/resource.php',
