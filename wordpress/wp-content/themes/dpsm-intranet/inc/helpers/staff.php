@@ -183,6 +183,16 @@ function dpsm_map_staff_member(
 /**
  * Get Staff Members
  */
+/**
+
+ * Supported Arguments:
+ *
+ * [
+ *     'search'     => '',
+ *     'unit'       => '',
+ *     'department' => 0,
+ * ]
+ */
 function dpsm_get_staff_members(
     array $args = []
 ): array {
@@ -206,11 +216,42 @@ function dpsm_get_staff_members(
     ];
 
     /**
-     * Search
-     *
-     * Native WP search for now.
-     * Relevanssi will enhance this later.
+     * Department Filter
      */
+
+    $meta_query = [];
+
+    if (
+        !empty($args['department'])
+    ) {
+
+        $meta_query[] = [
+
+            'key' =>
+            'department',
+
+            'value' =>
+            absint(
+                $args['department']
+            ),
+
+            'compare' =>
+            '=',
+        ];
+    }
+
+    if (
+        !empty($meta_query)
+    ) {
+
+        $query_args['meta_query'] =
+            $meta_query;
+    }
+
+    /**
+     * Search
+     */
+
     if (
         !empty($args['search'])
     ) {
@@ -222,8 +263,9 @@ function dpsm_get_staff_members(
     }
 
     /**
-     * Taxonomy Filters
+     * Unit Filter
      */
+
     $tax_query = [];
 
     if (
@@ -258,9 +300,15 @@ function dpsm_get_staff_members(
             $query_args
         );
 
+    /**
+     * Relevanssi Support
+     */
+
     if (
         !empty($args['search'])
-        && function_exists('relevanssi_do_query')
+        && function_exists(
+            'relevanssi_do_query'
+        )
     ) {
 
         relevanssi_do_query(
