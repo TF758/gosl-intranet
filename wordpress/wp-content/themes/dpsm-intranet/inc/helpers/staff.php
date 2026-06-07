@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
  * Map a Staff Member post
  * into a component-friendly array.
  */
-function dpsm_map_staff(
+function dpsm_map_staff_member(
     int $post_id
 ): array {
 
@@ -93,7 +93,7 @@ function dpsm_map_staff(
 
             /**
              * Ignore parent terms
-             * such as DPSM, HRM etc.
+             * such as DPSM, HRM, FMU etc.
              */
 
             if (
@@ -183,36 +183,92 @@ function dpsm_map_staff(
 /**
  * Get Staff Members
  */
-function dpsm_get_staff(
+function dpsm_get_staff_members(
     array $args = []
 ): array {
 
-    $query_args = wp_parse_args(
-        $args,
-        [
-            'post_type' =>
-            'staff',
+    $query_args = [
 
-            'posts_per_page' =>
-            -1,
+        'post_type' =>
+        'staff',
 
-            'post_status' =>
-            'publish',
+        'posts_per_page' =>
+        -1,
 
-            'orderby' =>
-            'title',
+        'post_status' =>
+        'publish',
 
-            'order' =>
-            'ASC',
-        ]
-    );
+        'orderby' =>
+        'title',
+
+        'order' =>
+        'ASC',
+    ];
+
+    /**
+     * Search
+     *
+     * Native WP search for now.
+     * Relevanssi will enhance this later.
+     */
+    if (
+        !empty($args['search'])
+    ) {
+
+        $query_args['s'] =
+            sanitize_text_field(
+                $args['search']
+            );
+    }
+
+    /**
+     * Taxonomy Filters
+     */
+    $tax_query = [];
+
+    if (
+        !empty($args['unit'])
+    ) {
+
+        $tax_query[] = [
+
+            'taxonomy' =>
+            'staff_unit',
+
+            'field' =>
+            'slug',
+
+            'terms' =>
+            sanitize_text_field(
+                $args['unit']
+            ),
+        ];
+    }
+
+    if (
+        !empty($tax_query)
+    ) {
+
+        $query_args['tax_query'] =
+            $tax_query;
+    }
 
     $query =
         new WP_Query(
             $query_args
         );
 
-    $staff = [];
+    if (
+        !empty($args['search'])
+        && function_exists('relevanssi_do_query')
+    ) {
+
+        relevanssi_do_query(
+            $query
+        );
+    }
+
+    $staff_members = [];
 
     while (
         $query->have_posts()
@@ -220,13 +276,13 @@ function dpsm_get_staff(
 
         $query->the_post();
 
-        $staff[] =
-            dpsm_map_staff(
+        $staff_members[] =
+            dpsm_map_staff_member(
                 get_the_ID()
             );
     }
 
     wp_reset_postdata();
 
-    return $staff;
+    return $staff_members;
 }

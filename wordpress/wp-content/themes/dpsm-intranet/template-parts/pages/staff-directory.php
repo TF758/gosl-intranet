@@ -1,7 +1,24 @@
 <?php
-$staff_members =
-    dpsm_get_staff();
+$filters = [
 
+    'search' =>
+    sanitize_text_field(
+        $_GET['search']
+            ?? ''
+    ),
+
+    'unit' =>
+    sanitize_text_field(
+        $_GET['unit']
+            ?? ''
+    ),
+
+];
+
+$staff_members =
+    dpsm_get_staff_members(
+        $filters
+    );
 /**
  * Filter Layout
  *

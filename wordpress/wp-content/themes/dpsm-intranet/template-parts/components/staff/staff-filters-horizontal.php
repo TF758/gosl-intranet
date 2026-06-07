@@ -1,4 +1,23 @@
-<div
+<?php
+
+$search =
+    $_GET['search']
+    ?? '';
+
+$unit =
+    $_GET['unit']
+    ?? '';
+
+$units =
+    get_terms([
+        'taxonomy'   => 'staff_unit',
+        'hide_empty' => false,
+    ]);
+
+?>
+
+<form
+    method="get"
     class="
         card
         bg-base-100
@@ -53,6 +72,8 @@
 
                 <input
                     type="search"
+                    name="search"
+                    value="<?php echo esc_attr($search); ?>"
                     placeholder="Search staff..."
                     class="
                         input
@@ -61,6 +82,7 @@
                     ">
 
                 <button
+                    type="submit"
                     class="
                         btn
                         btn-primary
@@ -74,7 +96,7 @@
 
         </div>
 
-        <!-- JOB TITLE -->
+        <!-- UNIT -->
 
         <div>
 
@@ -90,39 +112,6 @@
                 font-medium
             ">
 
-                    Job Title
-
-                </span>
-
-            </label>
-
-            <input
-                type="text"
-                placeholder="Search job titles..."
-                class="
-            input
-            input-bordered
-            w-full
-        ">
-
-        </div>
-
-        <!-- UNIT -->
-
-        <div>
-
-            <label
-                class="
-                    label
-                    pb-1
-                ">
-
-                <span
-                    class="
-                        label-text
-                        font-medium
-                    ">
-
                     Unit
 
                 </span>
@@ -130,58 +119,39 @@
             </label>
 
             <select
+                name="unit"
                 class="
-                    select
-                    select-bordered
-                    w-full
-                    lg:w-48
-                ">
+            select
+            select-bordered
+            w-full
+            lg:w-56
+        ">
 
-                <option>
+                <option value="">
                     All Units
                 </option>
 
-            </select>
+                <?php foreach ($units as $term) : ?>
 
-        </div>
+                    <option
+                        value="<?php echo esc_attr($term->slug); ?>"
+                        <?php selected(
+                            $unit,
+                            $term->slug
+                        ); ?>>
 
-        <!-- EXPERTISE -->
+                        <?php echo esc_html(
+                            $term->name
+                        ); ?>
 
-        <div>
+                    </option>
 
-            <label
-                class="
-                    label
-                    pb-1
-                ">
-
-                <span
-                    class="
-                        label-text
-                        font-medium
-                    ">
-
-                    Expertise
-
-                </span>
-
-            </label>
-
-            <select
-                class="
-                    select
-                    select-bordered
-                    w-full
-                    lg:w-48
-                ">
-
-                <option>
-                    All Tags
-                </option>
+                <?php endforeach; ?>
 
             </select>
 
         </div>
+
 
         <!-- CLEAR -->
 
@@ -200,7 +170,8 @@
 
             </label>
 
-            <button
+            <a
+                href="<?php echo esc_url(get_permalink()); ?>"
                 class="
                     btn
                     btn-outline
@@ -209,10 +180,10 @@
 
                 Clear
 
-            </button>
+            </a>
 
         </div>
 
     </div>
 
-</div>
+</form>
