@@ -80,15 +80,15 @@
 
             <label
                 class="
-                    label
-                    pb-1
-                ">
+            label
+            pb-1
+        ">
 
                 <span
                     class="
-                        label-text
-                        font-medium
-                    ">
+                label-text
+                font-medium
+            ">
 
                     Job Title
 
@@ -96,19 +96,14 @@
 
             </label>
 
-            <select
+            <input
+                type="text"
+                placeholder="Search job titles..."
                 class="
-                    select
-                    select-bordered
-                    w-full
-                    lg:w-48
-                ">
-
-                <option>
-                    All Titles
-                </option>
-
-            </select>
+            input
+            input-bordered
+            w-full
+        ">
 
         </div>
 
