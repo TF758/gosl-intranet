@@ -32,3 +32,26 @@ function dpsm_get_departments(): array
         $departments
     );
 }
+
+function dpsm_get_department_contacts(): array
+{
+    $departments =
+        get_posts([
+            'post_type' =>
+            'department',
+
+            'posts_per_page' =>
+            -1,
+
+            'orderby' =>
+            'title',
+
+            'order' =>
+            'ASC',
+        ]);
+
+    return array_map(
+        'dpsm_map_department',
+        $departments
+    );
+}

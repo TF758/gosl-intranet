@@ -35,6 +35,9 @@ $files = [
     'mappers/hero-slides.php',
     'mappers/news.php',
     'mappers/resource.php',
+    'mappers/department.php',
+
+    'wpforms/contact-routing.php',
 
 ];
 
