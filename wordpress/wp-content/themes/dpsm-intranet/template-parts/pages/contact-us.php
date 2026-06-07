@@ -8,56 +8,114 @@ $departments =
 
 <div
     class="
-        space-y-12
+        container
+        mx-auto
+        px-4
+        py-8
     ">
 
-    <?php
+    <div
+        class="
+            mb-8
+        ">
 
-    get_template_part(
-        'template-parts/components/layout/page-header',
-        null,
-        [
-            'title' =>
-            'Contact Us',
+        <h1
+            class="
+                text-4xl
+                font-bold
+            ">
+            Contact Us
+        </h1>
 
-            'description' =>
-            'Send inquiries, feedback, or requests to the appropriate department.',
-        ]
-    );
+        <p
+            class="
+                mt-2
+                text-base-content/70
+            ">
+            Need assistance? Select a department and send us a message.
+        </p>
 
-    ?>
+    </div>
 
-    <?php
+    <div
+        class="
+            grid
+            grid-cols-1
+            lg:grid-cols-3
+            gap-8
+        ">
 
-    get_template_part(
-        'template-parts/components/contact/contact-intro'
-    );
+        <div
+            class="
+                lg:col-span-2
+            ">
 
-    ?>
+            <?php
 
-    <?php
+            get_template_part(
+                'template-parts/components/contact/contact-form',
+                null,
+                [
+                    'form_id' => 111,
+                ]
+            );
 
-    get_template_part(
-        'template-parts/components/contact/contact-form',
-        null,
-        [
-            'form_id' => 111,
-        ]
-    );
+            ?>
 
-    ?>
 
-    <?php
 
-    get_template_part(
-        'template-parts/components/contact/contact-directory',
-        null,
-        [
-            'departments' =>
-            $departments,
-        ]
-    );
+        </div>
 
-    ?>
+
+        <div
+            class="
+                space-y-4
+            ">
+
+            <div
+                class="
+        space-y-2
+    ">
+
+                <h2
+                    class="
+            text-xl
+            font-semibold
+        ">
+                    Department Contacts
+                </h2>
+
+                <p
+                    class="
+            text-sm
+            text-base-content/70
+        ">
+                    Prefer to contact a department directly? Use the directory below.
+                </p>
+
+            </div>
+            <?php
+
+            foreach (
+                $departments
+                as $department
+            ) :
+
+                get_template_part(
+                    'template-parts/components/contact/department-contact-card',
+                    null,
+                    [
+                        'department' =>
+                        $department,
+                    ]
+                );
+
+            endforeach;
+
+            ?>
+
+        </div>
+
+    </div>
 
 </div>

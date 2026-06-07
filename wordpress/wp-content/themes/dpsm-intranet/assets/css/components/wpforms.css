@@ -1,0 +1,84 @@
+.wpforms-container .wpforms-field-label {
+  color: var(--color-base-content) !important;
+
+  font-weight: 600;
+}
+
+.wpforms-container input,
+.wpforms-container select,
+.wpforms-container textarea {
+  width: 100%;
+
+  padding: 0.75rem 1rem;
+
+  background-color: var(--color-base-100) !important;
+
+  color: var(--color-base-content) !important;
+
+  border: 1px solid var(--color-base-content) !important;
+
+  border-radius: 0.5rem;
+
+  transition: all 0.2s ease;
+}
+
+.wpforms-container input:hover,
+.wpforms-container select:hover,
+.wpforms-container textarea:hover {
+  border-color: var(--color-primary) !important;
+}
+
+.wpforms-container input:focus,
+.wpforms-container select:focus,
+.wpforms-container textarea:focus {
+  outline: none;
+
+  border-color: var(--color-primary) !important;
+
+  box-shadow: 0 0 0 3px
+    color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.wpforms-container .wpforms-submit {
+  width: 100%;
+
+  padding: 0.75rem 1.5rem;
+
+  border: none;
+
+  border-radius: 0.5rem;
+
+  background-color: var(--color-primary);
+
+  color: var(--color-primary-content);
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.wpforms-container .wpforms-field-limit-text {
+  color: var(--color-base-content) !important;
+
+  opacity: 0.7;
+
+  font-size: 0.875rem;
+}
+
+.wpforms-field-description {
+  color: var(--color-base-content) !important;
+
+  opacity: 0.7;
+
+  font-size: 0.875rem;
+}
+
+.wpforms-container label.wpforms-error {
+  color: var(--color-error) !important;
+}
+
+.wpforms-container input.wpforms-error,
+.wpforms-container select.wpforms-error,
+.wpforms-container textarea.wpforms-error {
+  border-color: var(--color-error) !important;
+}

@@ -18,6 +18,12 @@ function dpsm_get_department(
             $post_id
         ),
 
+        'full_name' =>
+        get_field(
+            'full_name',
+            $post_id
+        ),
+
         'department_code' =>
         get_field(
             'department_code',
@@ -48,6 +54,12 @@ function dpsm_get_department(
             $post_id
         ),
 
+        'office_location' =>
+        get_field(
+            'office_location',
+            $post_id
+        ),
+
     ];
 }
 
@@ -65,9 +77,33 @@ function dpsm_map_department(
             $department
         ),
 
+        'full_name' =>
+        get_field(
+            'full_name',
+            $department->ID
+        ),
+
+        'department_code' =>
+        get_field(
+            'department_code',
+            $department->ID
+        ),
+
+        'short_name' =>
+        get_field(
+            'short_name',
+            $department->ID
+        ),
+
+        'department_head' =>
+        get_field(
+            'department_head',
+            $department->ID
+        ),
+
         'email' =>
         get_field(
-            'department_email',
+            'contact_email',
             $department->ID
         ),
 

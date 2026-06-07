@@ -37,6 +37,8 @@ $files = [
     'mappers/resource.php',
     'mappers/department.php',
 
+    'wpforms/contact-routing.php',
+
 ];
 
 foreach ($files as $file) {

@@ -5,3 +5,4 @@
 @import "tailwindcss";
 
 @plugin "daisyui";
+@import "./components/wpforms.css";

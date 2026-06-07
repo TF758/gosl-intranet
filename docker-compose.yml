@@ -51,6 +51,16 @@ services:
     networks:
       - wp_network
 
+  mailpit:
+    image: axllent/mailpit
+    container_name: intranet-mailpit
+    restart: unless-stopped
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+    networks:
+      - wp_network
+
   wpcli:
     image: wordpress:cli
     depends_on:

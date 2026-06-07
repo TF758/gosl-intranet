@@ -1,20 +1,12 @@
 <?php
 
-$department_name =
-    $args['department_name']
-    ?? '';
+$department =
+    $args['department']
+    ?? [];
 
-$department_email =
-    $args['department_email']
-    ?? '';
-
-$department_phone =
-    $args['department_phone']
-    ?? '';
-
-$office_location =
-    $args['office_location']
-    ?? '';
+if (empty($department)) {
+    return;
+}
 
 ?>
 
@@ -27,88 +19,98 @@ $office_location =
         shadow-sm
     ">
 
-    <div class="card-body">
+    <div
+        class="
+            card-body
+            p-5
+        ">
 
         <h3
             class="
-                card-title
+                font-semibold
                 text-lg
             ">
 
             <?php
             echo esc_html(
-                $department_name
+                $department['full_name']
+                    ?? 'Department'
             );
             ?>
 
         </h3>
 
-        <?php if (
-            !empty($department_email)
-        ) : ?>
+        <div
+            class="
+                space-y-2
+                text-sm
+            ">
 
-            <p>
+            <?php if (!empty($department['email'])) : ?>
 
-                <strong>Email:</strong>
-
-                <a
-                    href="mailto:<?php
-                                    echo esc_attr(
-                                        $department_email
-                                    );
-                                    ?>"
+                <p
                     class="
-                        link
-                        link-primary
+                        break-all
                     ">
+
+                    📧
+
+                    <a
+                        href="mailto:<?php
+                                        echo esc_attr(
+                                            $department['email']
+                                        );
+                                        ?>"
+                        class="
+                            link
+                            link-primary
+                        ">
+
+                        <?php
+                        echo esc_html(
+                            $department['email']
+                        );
+                        ?>
+
+                    </a>
+
+                </p>
+
+            <?php endif; ?>
+
+            <?php if (!empty($department['phone'])) : ?>
+
+                <p>
+
+                    📞
 
                     <?php
                     echo esc_html(
-                        $department_email
+                        $department['phone']
                     );
                     ?>
 
-                </a>
+                </p>
 
-            </p>
+            <?php endif; ?>
 
-        <?php endif; ?>
+            <?php if (!empty($department['location'])) : ?>
 
-        <?php if (
-            !empty($department_phone)
-        ) : ?>
+                <p>
 
-            <p>
+                    📍
 
-                <strong>Phone:</strong>
+                    <?php
+                    echo esc_html(
+                        $department['location']
+                    );
+                    ?>
 
-                <?php
-                echo esc_html(
-                    $department_phone
-                );
-                ?>
+                </p>
 
-            </p>
+            <?php endif; ?>
 
-        <?php endif; ?>
-
-        <?php if (
-            !empty($office_location)
-        ) : ?>
-
-            <p>
-
-                <strong>Location:</strong>
-
-                <?php
-                echo esc_html(
-                    $office_location
-                );
-                ?>
-
-            </p>
-
-        <?php endif; ?>
+        </div>
 
     </div>
 
