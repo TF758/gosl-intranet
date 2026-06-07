@@ -15,6 +15,7 @@ $files = [
     'helpers/quick-links.php',
     'helpers/news.php',
     'helpers/resource.php',
+    'helpers/staff.php',
 
     'post-types/department.php',
 
