@@ -1,43 +1,16 @@
 <?php
 
-$department = get_queried_object();
+$department =
+    get_queried_object();
 
 get_template_part(
-    'template-parts/pages/department/department-hero',
+    'template-parts/layouts/department-layout',
     null,
     [
-        'department' => $department,
-    ]
-);
+        'department' =>
+        $department,
 
-get_template_part(
-    'template-parts/pages/department/department-news',
-    null,
-    [
-        'department' => $department,
-    ]
-);
-
-get_template_part(
-    'template-parts/pages/department/department-projects',
-    null,
-    [
-        'department' => $department,
-    ]
-);
-
-get_template_part(
-    'template-parts/pages/department/department-resources',
-    null,
-    [
-        'department' => $department,
-    ]
-);
-
-get_template_part(
-    'template-parts/pages/department/department-staff',
-    null,
-    [
-        'department' => $department,
+        'content_template' =>
+        'template-parts/pages/department/department-content',
     ]
 );
