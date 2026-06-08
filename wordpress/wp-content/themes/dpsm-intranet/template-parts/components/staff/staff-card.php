@@ -33,14 +33,13 @@ $show_department =
         shadow-sm
         hover:shadow-md
         transition-all
-        h-full
+  
     ">
 
     <div
         class="
             card-body
-            flex
-            flex-col
+            space-y-4
         ">
 
         <div
