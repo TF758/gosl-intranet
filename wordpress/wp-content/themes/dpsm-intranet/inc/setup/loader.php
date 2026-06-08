@@ -7,6 +7,8 @@ if (!defined('ABSPATH')) {
 $files = [
     'setup/constants.php',
     'setup/theme.php',
+    'setup/acf.php',
+    'setup/department-routing.php',
 
 
     'helpers/navigation.php',
@@ -23,7 +25,7 @@ $files = [
 
     'post-types/staff.php',
 
-    'setup/acf.php',
+
 
     'post-types/project.php',
     'post-types/resource.php',

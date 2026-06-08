@@ -27,6 +27,60 @@ function dpsm_get_department_sidebar_items(
         ?? [];
 }
 
+
+/**
+ * Get current department section.
+ */
+function dpsm_get_department_section(): string
+{
+    return sanitize_key(
+        get_query_var(
+            'department_section'
+        )
+    );
+}
+
+function dpsm_get_department_template(
+    string $section
+): string {
+
+    return match ($section) {
+
+        'staff' =>
+        'template-parts/pages/department/department-staff',
+
+        'projects' =>
+        'template-parts/pages/department/department-project',
+
+        'resources' =>
+        'template-parts/pages/department/department-resources',
+
+        'news' =>
+        'template-parts/pages/department/department-news',
+
+        'contact' =>
+        'template-parts/pages/department/department-contact',
+
+        'policies' =>
+        'template-parts/pages/department/department-policies',
+
+        'forms' =>
+        'template-parts/pages/department/department-forms',
+
+        'training' =>
+        'template-parts/pages/department/department-training',
+
+        'requests' =>
+        'template-parts/pages/department/department-requests',
+
+        'guidelines' =>
+        'template-parts/pages/department/department-guidelines',
+
+        default =>
+        'template-parts/pages/department/department-content',
+    };
+}
+
 /**
  * Generate a department navigation URL.
  *

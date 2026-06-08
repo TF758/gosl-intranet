@@ -1,8 +1,12 @@
-
 <?php
 
 $department =
     get_queried_object();
+
+$content_template =
+    dpsm_get_department_template(
+        dpsm_get_department_section()
+    );
 
 get_template_part(
     'template-parts/layouts/department-layout',
@@ -12,6 +16,6 @@ get_template_part(
         $department,
 
         'content_template' =>
-        'template-parts/pages/department/department-content',
+        $content_template,
     ]
 );
