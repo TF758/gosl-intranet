@@ -157,3 +157,48 @@ Run:
 ```
 
 The DPSM Intranet should be restored to the previous working state.
+
+### 5. Build Theme Assets
+
+Navigate to the custom theme:
+
+```powershell
+cd wordpress\wp-content\themes\dpsm-intranet
+```
+
+Install Node dependencies:
+
+```powershell
+npm install
+```
+
+Build the Tailwind/DaisyUI assets:
+
+```powershell
+npm run build
+```
+
+For active development, run the watcher:
+
+```powershell
+npm run watch
+```
+
+Leave the watcher running while editing theme files. It will automatically rebuild the compiled CSS when changes are saved.
+
+Return to the project root if required:
+
+```powershell
+cd ..\..\..\..\..
+```
+
+Theme Development
+
+Start Tailwind watcher:
+
+cd wordpress\wp-content\themes\dpsm-intranet
+npm run watch
+
+Rebuild assets manually:
+
+npm run build

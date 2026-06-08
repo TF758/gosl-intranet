@@ -56,7 +56,7 @@ $departments =
                 'template-parts/components/contact/contact-form',
                 null,
                 [
-                    'form_id' => 111,
+                    'departments' => $departments,
                 ]
             );
 
